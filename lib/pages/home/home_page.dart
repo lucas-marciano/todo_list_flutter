@@ -3,6 +3,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/controllers/home_controller.dart';
 import 'package:todo_list/pages/home/widgets/dialog_widget.dart';
+import 'package:todo_list/pages/home/widgets/empty_list_widget.dart';
 import 'package:todo_list/pages/home/widgets/item_widget.dart';
 
 /// by @lucas-marciano on 03/06/2020
@@ -43,18 +44,21 @@ class HomePage extends StatelessWidget {
         ],
       ),
       body: Observer(
-        builder: (_) => ListView.builder(
-          itemCount: controller.filteredList.length,
-          itemBuilder: (_, index) {
-            var task = controller.filteredList[index];
-            return ItemWidget(
-              task: task,
-              callbackRemove: () {
-                controller.remove(task);
+        builder: (_) {
+          if (controller.listTasks.isEmpty) {
+            return EmptyListWidget();
+          } else {
+            return ListView.builder(
+              itemCount: controller.filteredList.length,
+              itemBuilder: (_, index) {
+                var task = controller.filteredList[index];
+                return ItemWidget(
+                  task: task,
+                );
               },
             );
-          },
-        ),
+          }
+        },
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _buildDialog,
