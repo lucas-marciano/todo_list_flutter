@@ -1,5 +1,5 @@
 import 'package:mobx/mobx.dart';
-import 'package:todo_list/models/task_model.dart';
+import 'package:todo_list/shared/models/task_model.dart';
 part 'home_controller.g.dart';
 
 /// by @lucas-marciano on 03/06/2020

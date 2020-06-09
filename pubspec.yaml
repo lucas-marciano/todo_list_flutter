@@ -23,6 +23,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  floor:
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -35,6 +36,7 @@ dependencies:
 
 dev_dependencies:
   mobx_codegen:
+  floor_generator:
   build_runner:
   flutter_test:
     sdk: flutter
