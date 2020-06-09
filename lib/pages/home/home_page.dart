@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/controllers/home_controller.dart';
 import 'package:todo_list/pages/home/widgets/dialog_widget.dart';
@@ -14,6 +13,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   Icon _searchIcon = new Icon(Icons.search, color: Colors.white);
   Widget _appBarTitle = new Text('Tasks Flutter');
+  final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +91,9 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: _buildToolbar(),
-      body: ListWidget(),
+      body: ListWidget(
+        listKey: _listKey,
+      ),
       floatingActionButton: _buildFab(),
     );
   }

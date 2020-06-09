@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/controllers/home_controller.dart';
-import 'package:todo_list/models/task_model.dart';
+import 'package:todo_list/shared/models/task_model.dart';
 
+/// by @lucas-marciano on 03/06/2020
 class DialogConfirmWidget extends StatelessWidget {
   final TaskModel task;
 
